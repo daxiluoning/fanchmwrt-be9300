@@ -14,7 +14,7 @@
 
 ### 0.1 它不保留原厂 23.05 用户空间
 
-原厂 4.10.1 release1 是 **OpenWrt 23.05 + QSDK 12.5** 的闭源 BSP。GL.iNet 没有公开这套 BE9300 源码；公开的 `gl-openwrt` 只有 25.12 分支，而且只支持 BE10000/BE14000。OAF 是**内核模块**，`vermagic` 必须和固件内核逐字节匹配，所以不可能把 25.12 编出来的 `kmod-oaf` 装进原厂 23.05 系统。
+原厂 4.10.1 release1 是 **OpenWrt 23.05 + QSDK 12.5** 的闭源 BSP。公开渠道没有找到这套 BE9300 源码；公开的 `gl-openwrt` 只有 25.12 分支，而且只支持 BE10000/BE14000。OAF 是**内核模块**，`vermagic` 必须和固件内核逐字节匹配，所以不可能把 25.12 编出来的 `kmod-oaf` 装进原厂 23.05 系统。
 
 本工程刷入后是 **OpenWrt mainline（25.12 线，内核 6.18；树内版本号默认 `SNAPSHOT`）**，会替换原厂系统。可逆：分区布局、ART/无线校准数据保留，按 `docs/FLASHING.md` 可以回原厂。若“必须保留 23.05 用户空间”是硬性要求，先看 [`docs/STOCK-23.05.md`](docs/STOCK-23.05.md)，那条路需要你向 GL.iNet 索取 GPL 源码/SDK。
 
