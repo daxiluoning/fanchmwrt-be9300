@@ -20,6 +20,11 @@ uci -q commit firewall
 uci -q set fwx.advanced.disable_hnat='1'
 uci -q commit fwx
 
+# Default LuCI language: Simplified Chinese. The i18n packages are part of
+# the image; this only selects the language.
+uci -q set luci.main.lang='zh-cn'
+uci -q commit luci
+
 /etc/init.d/appfilter enable
 
 exit 0

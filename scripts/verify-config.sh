@@ -41,6 +41,10 @@ need CONFIG_PACKAGE_luci-app-oaf
 need CONFIG_PACKAGE_appfilter
 need CONFIG_PACKAGE_kmod-oaf
 need CONFIG_PACKAGE_be9300-defaults
+need CONFIG_PACKAGE_luci-i18n-base-zh-cn
+need CONFIG_PACKAGE_luci-i18n-firewall-zh-cn
+need CONFIG_PACKAGE_luci-i18n-package-manager-zh-cn
+need CONFIG_PACKAGE_luci-i18n-oaf-zh-cn
 
 if [ "$fail" -ne 0 ]; then
 	cat >&2 <<'EOF'

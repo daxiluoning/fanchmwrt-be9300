@@ -77,6 +77,7 @@ flint3 社区移植（qualcommbe/ipq53xx, kernel 6.18）
 ## 3. 功能与默认行为
 
 - **LuCI over HTTPS**：`luci-ssl-openssl`，首次登录 `https://192.168.1.1`
+- **中文界面**：内置 `luci-i18n-base/firewall/package-manager/oaf-zh-cn`，首启把 `luci.main.lang` 设为 `zh-cn`
 - **OAF**：应用识别、应用过滤、MAC 黑白名单、上网记录、流量统计、在线用户
 - **默认关闭硬件/软件 flow offload**：`be9300-defaults` 在首次启动写入
   `firewall.@defaults[0].flow_offloading=0`、`flow_offloading_hw=0`，并把
