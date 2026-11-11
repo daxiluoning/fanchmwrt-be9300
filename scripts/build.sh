@@ -60,6 +60,7 @@ done
 
 mkdir -p "$WORK"
 WORK="$(cd "$WORK" && pwd)"
+[ -n "$WORK" ] && [ "$WORK" != "/" ] || die "refusing to use '$WORK' as WORK"
 TREE="$WORK/openwrt"
 OUT="$ROOT/out/$(date +%Y%m%d-%H%M%S)"
 
