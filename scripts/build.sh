@@ -86,11 +86,14 @@ if [ ! -d "$TREE/.git" ]; then
 	git -C "$TREE" remote add origin "$BASE_REPO" 2>/dev/null || \
 		git -C "$TREE" remote set-url origin "$BASE_REPO"
 	GIT_TERMINAL_PROMPT=0 git -C "$TREE" fetch --depth 1 origin "tag" "$BASE_TAG"
-	git -C "$TREE" checkout -q FETCH_HEAD
+	# -f: the CI cache pre-populates dl/, and this tree tracks
+	# dl/backports-7.2-rc4.tar.zst, so a plain checkout refuses to overwrite
+	# the cached (untracked) copy. The contents are the same tarball.
+	git -C "$TREE" checkout -q -f FETCH_HEAD
 else
 	log "updating base tree to $BASE_TAG"
 	GIT_TERMINAL_PROMPT=0 git -C "$TREE" fetch --depth 1 origin "tag" "$BASE_TAG" || true
-	git -C "$TREE" checkout -q "$BASE_TAG"
+	git -C "$TREE" checkout -q -f "$BASE_TAG"
 fi
 
 head_sha="$(git -C "$TREE" rev-parse HEAD)"
