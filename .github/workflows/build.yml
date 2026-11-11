@@ -129,6 +129,7 @@ jobs:
             out/**/*.itb
             out/**/*.manifest
             out/**/*.buildinfo
+            out/**/profiles.json
             out/**/sha256sums
             out/**/build.log
           if-no-files-found: error

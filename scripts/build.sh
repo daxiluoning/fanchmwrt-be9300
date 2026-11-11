@@ -212,7 +212,7 @@ IMG_DIR="$TREE/bin/targets/qualcommbe/ipq53xx"
 [ -d "$IMG_DIR" ] || die "image directory not found: $IMG_DIR"
 
 shopt -s nullglob
-images=("$IMG_DIR"/*.bin "$IMG_DIR"/*.itb "$IMG_DIR"/*.manifest "$IMG_DIR"/*.buildinfo "$IMG_DIR"/sha256sums)
+images=("$IMG_DIR"/*.bin "$IMG_DIR"/*.itb "$IMG_DIR"/*.manifest "$IMG_DIR"/*.buildinfo "$IMG_DIR"/profiles.json "$IMG_DIR"/sha256sums)
 [ "${#images[@]}" -gt 0 ] || die "no images produced in $IMG_DIR"
 
 cp -f "${images[@]}" "$OUT/"
