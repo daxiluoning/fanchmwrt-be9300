@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# First-boot defaults for OAF on the GL-BE9300.
+#
+# OAF classifies flows in the netfilter FORWARD/PRE_ROUTING hooks. Once a flow
+# is offloaded to the software flowtable or to the IPQ5332 PPE, later packets
+# never reach those hooks, so application blocking becomes unreliable (the
+# first few packets are seen, the rest are not).
+#
+# Disabling offload costs throughput but is mandatory for DPI. If you prefer
+# speed over filtering, set both options back to 1 and do not use OAF.
+#
+# uci-defaults run before procd starts services, so the settings are in place
+# before firewall4 and appfilter start.
+
+uci -q set firewall.@defaults[0].flow_offloading='0'
+uci -q set firewall.@defaults[0].flow_offloading_hw='0'
+uci -q commit firewall
+
+uci -q set fwx.advanced.disable_hnat='1'
+uci -q commit fwx
+
+/etc/init.d/appfilter enable
+
+exit 0

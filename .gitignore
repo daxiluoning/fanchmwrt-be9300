@@ -1,0 +1,5 @@
+work/
+out/
+.ccache/
+*.log
+!docs/*.md
