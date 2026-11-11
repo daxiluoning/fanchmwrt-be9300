@@ -152,6 +152,7 @@ sudo apt-get install -y build-essential clang flex bison g++ gawk \
 
 git clone https://github.com/<you>/<repo>.git
 cd <repo>
+chmod +x scripts/*.sh
 ./scripts/build.sh --jobs "$(nproc)"
 ```
 
